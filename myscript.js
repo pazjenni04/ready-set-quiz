@@ -3,8 +3,10 @@ var question2 = document.getElementsByClassName(".question-b");
 var question3 = document.getElementsByClassName(".question-c");
 var question4 = document.getElementsByClassName(".question-d");
 
+var questionIndex = 0; //this starts at first question
 
 var score = 0; //sets original score to 0
+
 
 //objects created for question bank
 var quest1Data = {
@@ -47,6 +49,8 @@ function countdown() {
       timeLeft --;
       timeEl.textContent = timeLeft + " seconds remaining";
   
+      displayScores();
+
       if (timeLeft === 0) {
         clearInterval(timeInterval);
         timeEl.textContent= "";
@@ -71,33 +75,57 @@ function startQuiz() {
 
 //this function will assist in generating a random order in which the questions will get presented
 function getRandomQ () {
-    var currentQuestion = arrayofQ[3];  //this will be the question that is located inside the index depending on its position
+    var currentQuestion = arrayofQ[questionIndex];  //this will be the question that is located inside the index depending on its position
     question1.textContent =  currentQuestion.question; //allows for question to display on window
+
+    
+    
 
    for(var i=0; i<currentQuestion.options.length; i++) { //this creates the for loop for the options within the question
       var buttonOptions = document.createElement("button");  //created a button for each option within the array
       buttonOptions.textContent = currentQuestion.options[i];  //shows all answers dedicated to the array within "options"
       document.body.appendChild(buttonOptions);  //displays button options onto page
+      
+      buttonOptions.onclick = optionClick; //creates event listener for when you click the button it connects to the function () optionClick
+
+      currentQuestion.innerHTML = ""; //should clear buttons once goes to the next question
 
       buttonOptions.dataset.correctAnswer = currentQuestion.answer;  //adds the correct answer data-attribute to the button
       
-      //buttonOptions.addEventListener("click",  
-      //need to create an event listener that when push the button it will register whether answer was correct and go to the next quest in the queue
-
-    //generatedQ += questions.charAt[Math.floor(Math.random(questions.length))]
-     
+};
 };
 
-};
 
 function displayScores() {
   var userScore = document.querySelector(".score-container");
-  var displaySettings = userScore.style.display;
   
-  if (countdown() > 0){
-    userScore
-  }
+  if (timeLeft > 0){
+    userScore.style.display = "none";
+  } else {
+    userScore.style.display = "block";
+  };
+
+
+};
 
 displayScores();
 
+function endQuiz () {
+  clearInterval(timeLeft)
 };
+
+function optionClick (event) {
+  var currentQuestion = arrayofQ[questionIndex];
+  var choiceClick = event.target.textContent;
+
+  if (choiceClick === currentQuestion.answer) {
+    console.log("Correct!");
+  } else {
+    console.log("Wrong!");
+    countdown -2;
+  };
+  questionIndex++;
+  getRandomQ();
+
+};
+

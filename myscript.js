@@ -2,7 +2,10 @@ var question1 = document.querySelector(".question-a");
 var quizEl = document.querySelector(".quizEl");
 var restartBtn = document.getElementById("#restart");
 
+var scoreInput = document.getElementById("score-input").value;
+
 var questionIndex = 0; //this starts at first question
+
 
 //objects created for question bank
 var quest1Data = {
@@ -59,6 +62,7 @@ function countdown() {
       
       if (timeLeft > 0 || !null) {
         timeEl.style.display = "block";
+        document.getElementById("restart").style.display = "block";
        //restartBtn.style.display = "block";
       };
 
@@ -70,7 +74,7 @@ function countdown() {
         
       };
     }, 1000);
-  };
+};
 
 
 
@@ -80,12 +84,6 @@ function startQuiz() {
   document.querySelector(".homepage").style.display = "none"; //this removes the instructional page of "hides"
   getRandomQ();
 };
-
-//start the timer
-//switch from the opening window (instructional page) and display first question and options
-//repeat throughout each questions
-//once timer ends, redirect to a highscore page where the user can insert there name next to the score
-//show list of highscores -- local storage
 
 
 //this function will assist in generating a the questions on the quiz from the array
@@ -107,6 +105,7 @@ function getRandomQ () {
 };
 
 };
+
 
 //displays scoreboard and input to enter name for highscore ranks
 function displayScores() {
@@ -133,8 +132,8 @@ function optionClick (event) {
   
   if (choiceClick === currentQuestion.answer) {
     console.log("Correct!");
-    scoreEl++; //every correct answer the user answers correctly, it will add a point to the final score
-    document.getElementById("scoreboard").textContent= "Score: " + scoreEl
+    scoreEl+=5; //every correct answer the user answers correctly, it will add 5 points to the final score
+    document.getElementById("scoreboard").textContent= "Score: " + scoreEl;
   } else {
     console.log("Wrong!");
     countdown -2;
@@ -143,25 +142,50 @@ function optionClick (event) {
   questionIndex++;
   document.querySelector(".question-a").innerHTML = " "; //clears option interval after the function populates a new question
   getRandomQ();
+
 };
 
-
 //need to add score to local storage and name input once complete
-
+var highscore = localStorage.getItem("highscore");
 
 //need to create a restart button for scoreboard page
+
+function restart(event) {
+  event.preventDefault();
+
+  clearInterval(timeEl);
+  clearScore();
+  startQuiz();
+};
 
 document.getElementById("restart").addEventListener("click", restartQuiz);
 document.getElementById("restart2").addEventListener("click", restartQuiz);
 
-function restartQuiz() {
-  alert("Quiz will restart");
-  document.querySelector(".homepage");  //won't function past the alert button -- need to update line 193 and 194
-  startQuiz();
+function clearScore() {
+  scoreEl = 0;
 };
-  
 
 
+function submit(event) {
+  event.preventDefault();
 
+  event.target.textContent;  
 
+  document.getElementById("submit").style.display= "none";
+  document.querySelector(".hidden").style.display= "none";
+  document.querySelector(".score-container").style.display= "none";
+  document.querySelector(".highscore-container").style.display= "block";
+  showInput();
 
+};
+
+function showInput () {
+ var message = document.getElementById("score-input").value;
+ var displayedInput = document.querySelector(".displayedInput");
+
+ displayedInput.innerHTML = "Congratulations " + message + "!" + " You scored " + scoreEl + " points!";
+};
+
+showInput();
+
+document.getElementById("submit").addEventListener("click", submit);

@@ -79,6 +79,25 @@ p {
     justify-content: center;
 }
 
+.highscore-container {
+    padding: 20px;
+    margin: 20px;
+    border: 2px;
+    position: relative;
+    display: block;
+}
+
+.displayedInput {
+    display: flex;
+    font-size: 50px;
+    padding: 20px;
+    margin: 20px;
+    border: 2px;
+    text-align: center;
+    color: #D4EFDF;
+    font-family: 'Montserrat', sans-serif;
+}
+
 #score-header {
     font-size: 60px;
     display: flex;

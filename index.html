@@ -8,6 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Asap&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Asap&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Ready, set, quiz!</title>
 
@@ -19,24 +21,30 @@
             <p>Come test yourself on basic coding knowledge!  You are racing against the clock to see how many questions you can answer correctly before the timer runs out.  Good luck!</p>
             <button id="mybutton">Start</button>
         </header>
-        <div id="timer-container">
+        <div class="timer-container">
             <section class="timer" style= "display: none"></section>
         </div>
         <section class= "quizEl">
             <div class="question-a">
                 <h1></h1>
             </div> 
-            <button id= "restart" value= "true"> Restart</button>
+            <button id= "restart" onclick= "restartQuiz()" value= "true" style= "display: none"> Restart</button>
         </section>
     
     </div>
     
     <div class = "score-container">
         <h2 id = "score-header">Scoreboard</h2>
-        <input type="text" value="Insert first and Last name" id= "score-input">
+        <input type="text" value=" " id= "score-input">
         <div id = "scoreboard"></div>
-        <button id= "restart2" value= "true"> Restart</button>
-        <button id= "submit" value="true">Submit score!</button>
+        <button id= "submit" onclick="showInput()">Submit score!</button>
+        <button id= "restart2" onclick= "restartQuiz()" value= "true"> Restart</button>
+    </div>
+        
+
+    <div class= "highscore-container" style="display: none">
+        <div class = "displayedInput"></div>
+        <button id= "restart3" value= "true"> Restart</button>
     </div>
      
     <script src="myscript.js"></script>

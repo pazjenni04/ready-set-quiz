@@ -12,6 +12,19 @@ body {
     background-color: #0E6655;
 }
 
+h1 {
+    color: #D4EFDF;
+    font-size: 35px;
+    font-family: 'Asap', sans-serif;
+}
+
+p {
+    color: black;
+    font-size: 20px;
+    font-family: 'Asap', sans-serif; 
+}
+
+
 .hide {
     display: none;
 }
@@ -28,12 +41,12 @@ body {
 
 .timer {
     display: inline-block;
-    padding: 10px;
-    margin: 10px;
+    padding: 5px;
+    margin: 5px;
     border: 2px solid black;
     text-align: center;
     height: 80px;
-    width: 800px;
+    width: 500px;
     font-size: 20px;
     background-color: #F2F4F4;
     left: 500px;
@@ -50,16 +63,75 @@ body {
 
 }
 
-#score-header {
-    font-size: 50px;
-    display: block;
-    align-items: center;
-    font-family: 'Bebas Neue', cursive;
-    left: 50%;
+.score-container {
+    display: flex;
+    margin: 50px;
+    padding: 20px;
+    border: 50px;
+    justify-content: center;
 }
 
-h1 {
-    color: #D4EFDF;
-    font-size: 35px;
-    font-family: 'Asap', sans-serif;
+#score-header {
+    font-size: 60px;
+    display: flex;
+    align-items: center;
+    font-family: 'Bebas Neue', cursive;
+    justify-content: center;
+    border: 5px;
+    left: 40%;
+}
+
+#mybutton{
+    display: inline-block;
+    background-color: #D4EFDF;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid black;
+    font-size: 20px;
+}
+
+#restart {
+    display: block;
+    
+}
+
+#restart2 {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    border: 5px;
+    left: 45%;
+}
+
+#scoreboard {
+    font-size: 40px;
+    font-family: 'Bebas Neue', cursive;
+    display: flex;
+    position: relative;
+    padding: 10px;
+    margin: 10px;
+    border: 2px;
+    align-items: center;
+    position: relative;
+    left: 43%;
+}
+
+#score-input {
+    justify-content: center;
+    border: 5px;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    left: 35%;
+}
+
+#submit {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    border: 5px;
+    left: 43%;
 }

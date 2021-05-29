@@ -1,10 +1,8 @@
 var question1 = document.querySelector(".question-a");
 var quizEl = document.querySelector(".quizEl");
+var restartBtn = document.getElementById("#restart");
 
 var questionIndex = 0; //this starts at first question
-
-var score = 0; //sets original score to 0
-
 
 //objects created for question bank
 var quest1Data = {
@@ -29,10 +27,22 @@ var quest4Data = {
   question: "What is the purpose of a for-loop?",
   options: ["loops through a block of code a number of times", "it demonstrates the amount of indexes in an array", "none of the above", "it allows you to to connect a javascript code to a particular class or id in the HTML document."],
   answer: "loops through a block of code a number of times",
-}
+};
+
+var quest5Data = {
+  question: "What does HTML stand for?",
+  options: ["Hypertext Markup Language", "Hero Max Language", "none of the above", "all of the above"],
+  answer: "Hypertext Markup Language",
+};
+
+var quest6Data = {
+  question: "What is the purpose of a CSS stylesheet?",
+  options: ["to provide a set of general rules that suggest how content should look when rendered", "to create responsive, interactive elements for web pages, enhancing the user experience", "to provide Web developers with a standard way to define, apply, and manage sets of style characteristics", "all of the above"],
+  answer: "to provide Web developers with a standard way to define, apply, and manage sets of style characteristics",
+};
 
 
-var arrayofQ = [quest1Data, quest2Data, quest3Data, quest4Data];
+var arrayofQ = [quest1Data, quest2Data, quest3Data, quest4Data, quest5Data, quest6Data];
 
 //event listener starts once the user clicks the start button
 document.getElementById("mybutton").addEventListener("click", startQuiz);
@@ -46,7 +56,12 @@ function countdown() {
     var timeInterval = setInterval(function() {
       timeLeft --;
       timeEl.textContent = "Timer: " + timeLeft + " seconds remaining";
-  
+      
+      if (timeLeft > 0 || !null) {
+        timeEl.style.display = "block";
+       //restartBtn.style.display = "block";
+      };
+
       displayScores();
 
       if (timeLeft === 0) {
@@ -58,6 +73,8 @@ function countdown() {
   };
 
 
+
+//function will start quiz and timer and redirect to first question
 function startQuiz() {
   countdown();
   document.querySelector(".homepage").style.display = "none"; //this removes the instructional page of "hides"
@@ -71,29 +88,27 @@ function startQuiz() {
 //show list of highscores -- local storage
 
 
-//this function will assist in generating a random order in which the questions will get presented
+//this function will assist in generating a the questions on the quiz from the array
 function getRandomQ () {
     var currentQuestion = arrayofQ[questionIndex];  //this will be the question that is located inside the index depending on its position
-
+    
     question1.textContent = currentQuestion.question; //allows for question to display on window
 
    for(var i=0; i<currentQuestion.options.length; i++) { //this creates the for loop for the options within the question
       var buttonOptions = document.createElement("button");  //created a button for each option within the array
-      var hiddenEl = document.querySelector(".hidden");
-      
+
       buttonOptions.textContent = currentQuestion.options[i];  //shows all answers dedicated to the array within "options"
-      hiddenEl.appendChild(buttonOptions);  //displays button options onto page
+      question1.appendChild(buttonOptions);  //displays button options onto page
       
       buttonOptions.onclick = optionClick; //creates event listener for when you click the button it connects to the function () optionClick
 
       buttonOptions.dataset.correctAnswer = currentQuestion.answer;  //adds the correct answer data-attribute to the button
-      
-      currentQuestion.options.innerHTML = " "; //needs to be able to clear the interval - but doesn't work?
+ 
 };
 
 };
 
-
+//displays scoreboard and input to enter name for highscore ranks
 function displayScores() {
   var userScore = document.querySelector(".score-container");
   
@@ -107,48 +122,46 @@ function displayScores() {
 
 displayScores();
 
+var scoreEl = 0;
+
+//when user clicks on an option button then will go to the next question in the quiz
 function optionClick (event) {
   event.preventDefault();
 
   var currentQuestion = arrayofQ[questionIndex];
   var choiceClick = event.target.textContent;
   
-
   if (choiceClick === currentQuestion.answer) {
     console.log("Correct!");
+    scoreEl++; //every correct answer the user answers correctly, it will add a point to the final score
+    document.getElementById("scoreboard").textContent= "Score: " + scoreEl
   } else {
     console.log("Wrong!");
     countdown -2;
   };
   
   questionIndex++;
+  document.querySelector(".question-a").innerHTML = " "; //clears option interval after the function populates a new question
   getRandomQ();
 };
 
 
-
-
-//create a scoreboard to collect 2 points for every question correct
-//need to calculate all scores at the end
 //need to add score to local storage and name input once complete
 
-var scoreEl = 0;
 
-function addToScore () {
-  var scoreboard = document.getElementById("#scoreboard");
-  var currentQuestion = arrayofQ[0];
-  var answer = currentQuestion.answer;
+//need to create a restart button for scoreboard page
 
-  scoreboard.textContent = document.querySelector(".container")
+document.getElementById("restart").addEventListener("click", restartQuiz);
+document.getElementById("restart2").addEventListener("click", restartQuiz);
 
-  if (optionClick === currentQuestion.answer) {
-    scoreEl +2;
-
-  } else {
-
-    return;
-  };
-  
+function restartQuiz() {
+  alert("Quiz will restart");
+  document.querySelector(".homepage");  //won't function past the alert button -- need to update line 193 and 194
+  startQuiz();
 };
+  
 
-addToScore();
+
+
+
+

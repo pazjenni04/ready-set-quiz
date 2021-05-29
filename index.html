@@ -4,69 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Asap&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Asap&family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Ready, set, quiz!</title>
+
 </head>
 <body class = "container">
-    <header class = "homepage">
-        <h1 id="start-page">Coding Quiz Challenge</h1>
-        <p>Come test yourself on basic coding knowledge!  You are racing against the clock to see how many questions you can answer correctly before the timer runs out.  Good luck!</p>
-        <button id="mybutton">Start</button>
-    </header>
+    <div class = "hidden">
+        <header class = "homepage">
+            <h1 id="start-page">Coding Quiz Challenge</h1>
+            <p>Come test yourself on basic coding knowledge!  You are racing against the clock to see how many questions you can answer correctly before the timer runs out.  Good luck!</p>
+            <button id="mybutton">Start</button>
+        </header>
 
-    <section class="timer"></section>
+        <section class="timer"></section>
 
-    <section>
-        <div class="question-a">
-            <h1></h1>
-                <div>
-                <form>
-            
-                </form>
-                </div>
-        </div>
-    
-    </section>
-
-    <section>
-        <div class="question-b">
-            <h1></h1>
-                <div>
-                
-                </div>
-        </div>
-
-    </section>
-
-    <section>
-        <div class="question-c">
-            <h1></h1>
-                <div>
-                
-                </div>
-        </div>
-
-    </section>
-
-    <section>
-        <div class="question-d">
-            <h1></h1>
-            <div>
-            
+        <section class= "quizEl">
+            <div class="question-a">
+                <h1></h1>
             </div>
-        </div>
-
-    </section>
-
-    <section>
-        <h6></h6>
-    </section>
-
+    
+        </section>
+    
+    </div>
+    
     <div class = "score-container">
         <h2 id = "score-header">Scoreboard</h2>
         <input type="text" value="Insert first and Last name" id= "score-input">
+        <div id = "scoreboard"></div>
     </div>
-
+     
     <script src="myscript.js"></script>
 </body>
 </html>

@@ -39,17 +39,25 @@ p {
 
 }
 
+.timer-container {
+    display: flex;
+    border: 30px;
+    padding: 10px;
+    margin: 10px;
+}
+
 .timer {
-    display: inline-block;
     padding: 5px;
     margin: 5px;
     border: 2px solid black;
     text-align: center;
-    height: 80px;
-    width: 500px;
-    font-size: 20px;
-    background-color: #F2F4F4;
-    left: 500px;
+    height: 78px;
+    width: 375px;
+    font-size: 35px;
+    background-color: #D5F5E3;
+    left: 35%;
+    display: flex;
+    justify-content: center;
 }
 
 .question-a {

@@ -14,13 +14,14 @@ body {
 
 h1 {
     color: #D4EFDF;
-    font-size: 35px;
+    font-size: 40px;
     font-family: 'Asap', sans-serif;
+    text-align: center;
 }
 
 p {
     color: black;
-    font-size: 20px;
+    font-size: 30px;
     font-family: 'Asap', sans-serif; 
 }
 
@@ -62,10 +63,10 @@ p {
 
 .question-a {
     display: inline-block;
-    font-size: 30px;
+    font-size: 35px;
     padding: 20px;
     margin: 20px;
-    border: 2px;
+    border: 10px;
     text-align: center;
     color: #D4EFDF;
 
@@ -90,12 +91,13 @@ p {
 .displayedInput {
     display: flex;
     font-size: 50px;
-    padding: 20px;
-    margin: 20px;
-    border: 2px;
+    padding: 30px;
+    margin: 30px;
+    border: 10px;
     text-align: center;
     color: #D4EFDF;
     font-family: 'Montserrat', sans-serif;
+    justify-content: center;
 }
 
 .tryAgain {
@@ -104,7 +106,7 @@ p {
     align-items: center;
     justify-content: center;
     border: 5px;
-    left: 42%; 
+    left: 42%;
 }
 
 .restartBtn {
@@ -113,17 +115,15 @@ p {
     align-items: center;
     justify-content: center;
     border: 5px;
-    left: 45%;
+    left: 48%;
 }
 
 #score-header {
-    font-size: 60px;
+    font-size: 70px;
     display: flex;
-    align-items: center;
     font-family: 'Bebas Neue', cursive;
     justify-content: center;
     border: 5px;
-    left: 40%;
 }
 
 #mybutton{
@@ -133,15 +133,11 @@ p {
     margin: 10px;
     border: 1px solid black;
     font-size: 20px;
-}
-
-#restart {
-    display: block;
-    
+    justify-content: center;
 }
 
 #scoreboard {
-    font-size: 40px;
+    font-size: 50px;
     font-family: 'Bebas Neue', cursive;
     display: flex;
     position: relative;
@@ -150,7 +146,7 @@ p {
     border: 2px;
     align-items: center;
     position: relative;
-    left: 43%;
+    left: 45%;
 }
 
 #score-input {
@@ -160,7 +156,7 @@ p {
     display: flex;
     align-items: center;
     position: relative;
-    left: 35%;
+    left: 40%;
 }
 
 #submit {
@@ -169,5 +165,5 @@ p {
     align-items: center;
     justify-content: center;
     border: 5px;
-    left: 43%;
+    left: 46%;
 }

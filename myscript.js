@@ -50,7 +50,7 @@ var arrayofQ = [quest1Data, quest2Data, quest3Data, quest4Data, quest5Data, ques
 //event listener starts once the user clicks the start button
 document.getElementById("mybutton").addEventListener("click", startQuiz);
 
-var timeLeft = 5;
+var timeLeft = 15;
 var timeEl = document.querySelector(".timer");
 
 //this function runs the timer for the quiz -- once the user clicks the start button the countdown will begin

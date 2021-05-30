@@ -28,7 +28,7 @@
             <div class="question-a">
                 <h1></h1>
             </div> 
-            <button id= "restart" onclick= "restartQuiz()" value= "true" style= "display: none"> Restart</button>
+            <button id= "restart" onclick= "restart()" style= "display: none"> Restart</button>
         </section>
     
     </div>
@@ -38,13 +38,13 @@
         <input type="text" value=" " id= "score-input">
         <div id = "scoreboard"></div>
         <button id= "submit" onclick="showInput()">Submit score!</button>
-        <button id= "restart2" onclick= "restartQuiz()" value= "true"> Restart</button>
+        <button class= "restartBtn" onclick= "restart()"> Restart</button>
     </div>
         
 
     <div class= "highscore-container" style="display: none">
         <div class = "displayedInput"></div>
-        <button id= "restart3" value= "true"> Restart</button>
+        <button class= "tryAgain" onclick="tryAgain()"> Try Again</button>
     </div>
      
     <script src="myscript.js"></script>

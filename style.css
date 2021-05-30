@@ -98,6 +98,24 @@ p {
     font-family: 'Montserrat', sans-serif;
 }
 
+.tryAgain {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    border: 5px;
+    left: 42%; 
+}
+
+.restartBtn {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    border: 5px;
+    left: 45%;
+}
+
 #score-header {
     font-size: 60px;
     display: flex;
@@ -120,15 +138,6 @@ p {
 #restart {
     display: block;
     
-}
-
-#restart2 {
-    display: flex;
-    position: relative;
-    align-items: center;
-    justify-content: center;
-    border: 5px;
-    left: 45%;
 }
 
 #scoreboard {

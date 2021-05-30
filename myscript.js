@@ -145,21 +145,6 @@ function optionClick (event) {
 
 };
 
-//need to add score to local storage and name input once complete
-var highscore = localStorage.getItem("highscore");
-
-//need to create a restart button for scoreboard page
-
-function restart(event) {
-  event.preventDefault();
-
-  clearInterval(timeEl);
-  clearScore();
-  startQuiz();
-};
-
-document.getElementById("restart").addEventListener("click", restartQuiz);
-document.getElementById("restart2").addEventListener("click", restartQuiz);
 
 function clearScore() {
   scoreEl = 0;
@@ -176,6 +161,7 @@ function submit(event) {
   document.querySelector(".score-container").style.display= "none";
   document.querySelector(".highscore-container").style.display= "block";
   showInput();
+  saveHighScore();
 
 };
 
@@ -189,3 +175,52 @@ function showInput () {
 showInput();
 
 document.getElementById("submit").addEventListener("click", submit);
+
+//need to add score to local storage and name input once complete
+var highscore = JSON.parse(localStorage.getItem("highscore")) || [];
+var mostRecentScore = localStorage.getItem("scoreEl"); //local storage to capture the last score posted
+
+var maxHigh = 5;
+
+scoreEl = mostRecentScore;
+
+
+//when called, this function updates the highscores in local storage
+function saveHighScore () {
+
+  var score = {
+    score: scoreEl,
+    name: document.getElementById("score-input").value,
+  };
+
+  highscore.push(score);
+
+  highscore.sort ( (a,b) => b.score - a.score);
+
+  highscore.splice(5);
+
+  localStorage.setItem('highscore', JSON.stringify(highscore));
+
+};
+
+//restart buttons
+function restart(event) {
+  event.preventDefault();
+
+  clearScore();
+  window.location.assign("/");
+};
+
+//Try Again button on score page
+function tryAgain(event) {
+
+  window.location.assign("/");
+
+};
+
+tryAgain();
+
+document.getElementById("restart").addEventListener("click", restart);
+document.querySelector(".restartBtn").addEventListener("click", restart);
+
+document.querySelector(".tryAgain").addEventListener("click", tryAgain);

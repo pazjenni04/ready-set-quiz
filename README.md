@@ -14,7 +14,7 @@ As the user continues to test their knowledge throughout each question presented
 
 Once the user has completed the quiz and has entered their name, they can press the "Submit score!" button and will be redirected to a page that will congratulate them and showcase their score.
 
-![In this image, once the user has inputted their name in the field, the page will then display their name and their score](images\last-page.PNG)
+![In this image, once the user has inputted their name in the field, the page will then display their name and their score](https://raw.githubusercontent.com/pazjenni04/ready-set-quiz/main/images/last-page.PNG)
  
 At this moment, the user can choose to "Try again" and restart the quiz.  Depending on how high the user scored in the quiz, the local storage will collect the last 5 highest scores and display their name and score in an array within the browser.  If a user outbeats one of the posted scores in the local storage, then their new highscore will then replace one already within the array.  Depending on how high that user scored will depend on where their name is placed in the local storage array.  The local storage will rank scores from highest to lowest out of the 5 stored.
 

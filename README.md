@@ -9,7 +9,7 @@ Once the user clicks on "Start", they will be presented with the first question.
 
 As the user continues to test their knowledge throughout each question presented, the timer will continue to tick down until it reaches 0.  Once the timer runs out, the page will be redirected where the user can enter their name into the blank input field and their score will be displayed underneath. 
 
-![In this image, the user will input their name into the blank field.  Their current score will be displayed underneath.](images\scoreboard-input-name.PNG)
+![In this image, the user will input their name into the blank field.  Their current score will be displayed underneath.](https://raw.githubusercontent.com/pazjenni04/ready-set-quiz/main/images/scoreboard-input-name.PNG)
 
 
 Once the user has completed the quiz and has entered their name, they can press the "Submit score!" button and will be redirected to a page that will congratulate them and showcase their score.

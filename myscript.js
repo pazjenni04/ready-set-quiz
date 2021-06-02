@@ -63,14 +63,12 @@ function countdown() {
       if (timeLeft > 0 || !null) {
         timeEl.style.display = "block";
         document.getElementById("restart").style.display = "block";
-       //restartBtn.style.display = "block";
       };
-
-      displayScores();
 
       if (timeLeft === 0) {
         clearInterval(timeInterval);
         timeEl.textContent= "";
+        displayScores();
         
       };
     }, 1000);
@@ -101,7 +99,7 @@ function getRandomQ () {
       buttonOptions.onclick = optionClick; //creates event listener for when you click the button it connects to the function () optionClick
 
       buttonOptions.dataset.correctAnswer = currentQuestion.answer;  //adds the correct answer data-attribute to the button
- 
+
 };
 
 };
@@ -111,15 +109,9 @@ function getRandomQ () {
 function displayScores() {
   var userScore = document.querySelector(".score-container");
   
-  if (timeLeft > 0){
-    userScore.style.display = "none"; //if timer is greater than 0 then display score will be hidden
-  } else {
     userScore.style.display = "block"; //displays the scoreboard onto the page once timer hits 0
     document.querySelector(".hidden").style.display = "none"; //hides all elements inside div container class ."hidden" -- all questions and headers on page
-  };
 };
-
-displayScores();
 
 var scoreEl = 0;
 
@@ -136,21 +128,36 @@ function optionClick (event) {
     document.getElementById("scoreboard").textContent= "Score: " + scoreEl;
   } else {
     console.log("Wrong!");
-    countdown -2;
+    timeLeft = timeLeft - 2;
   };
   
   questionIndex++;
   document.querySelector(".question-a").innerHTML = " "; //clears option interval after the function populates a new question
-  getRandomQ();
+
+  if(questionIndex >= arrayofQ.length){
+    endQuiz();
+  }else {
+    getRandomQ();
+  };
+
 
 };
 
+
+//needs to end quiz if run out of questions from the array?
+function endQuiz () {
+  var currentQuestion = arrayofQ[questionIndex];
+
+  if(typeof currentQuestion === "undefined" ) {
+    return displayScores();
+  };
+};
 
 function clearScore() {
   scoreEl = 0;
 };
 
-
+//submit bitton - redirects to page where score will be displayed
 function submit(event) {
   event.preventDefault();
 
@@ -165,11 +172,13 @@ function submit(event) {
 
 };
 
+//displays last page "Congrats" and score the user scored
 function showInput () {
  var message = document.getElementById("score-input").value;
  var displayedInput = document.querySelector(".displayedInput");
 
  displayedInput.innerHTML = "Congratulations " + message + "!" + " You scored " + scoreEl + " points!";
+
 };
 
 showInput();
@@ -180,7 +189,7 @@ document.getElementById("submit").addEventListener("click", submit);
 var highscore = JSON.parse(localStorage.getItem("highscore")) || [];
 var mostRecentScore = localStorage.getItem("scoreEl"); //local storage to capture the last score posted
 
-var maxHigh = 5;
+var maxHigh = 5; //will only store the last 5 highest scores
 
 scoreEl = mostRecentScore;
 
@@ -189,15 +198,15 @@ scoreEl = mostRecentScore;
 function saveHighScore () {
 
   var score = {
-    score: scoreEl,
-    name: document.getElementById("score-input").value,
+    score: scoreEl, //the score
+    name: document.getElementById("score-input").value, //the input they typed in on the scoreboard page
   };
 
-  highscore.push(score);
+  highscore.push(score); //will push the score to localstorage
 
   highscore.sort ( (a,b) => b.score - a.score);
 
-  highscore.splice(5);
+  highscore.splice(5); //will only capture the last 5 highest scores
 
   localStorage.setItem('highscore', JSON.stringify(highscore));
 
@@ -208,17 +217,15 @@ function restart(event) {
   event.preventDefault();
 
   clearScore();
-  window.location.assign("/");
+  window.location.assign("/"); //will redirect to first page of the quiz if restarts
 };
 
 //Try Again button on score page
 function tryAgain(event) {
 
-  window.location.assign("/");
+  window.location.assign("/");  //will redirect to the first page of the quiz if tries again
 
 };
-
-tryAgain();
 
 document.getElementById("restart").addEventListener("click", restart);
 document.querySelector(".restartBtn").addEventListener("click", restart);

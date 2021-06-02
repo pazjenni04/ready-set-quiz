@@ -18,7 +18,7 @@ Once the user has completed the quiz and has entered their name, they can press 
  
 At this moment, the user can choose to "Try again" and restart the quiz.  Depending on how high the user scored in the quiz, the local storage will collect the last 5 highest scores and display their name and score in an array within the browser.  If a user outbeats one of the posted scores in the local storage, then their new highscore will then replace one already within the array.  Depending on how high that user scored will depend on where their name is placed in the local storage array.  The local storage will rank scores from highest to lowest out of the 5 stored.
 
-![In this image, you will see that the browser stores the last 5 highest scores in the local storage](images\local-storage.PNG)
+![In this image, you will see that the browser stores the last 5 highest scores in the local storage](https://raw.githubusercontent.com/pazjenni04/ready-set-quiz/main/images/local-storage.PNG)
 
 How to score points
 

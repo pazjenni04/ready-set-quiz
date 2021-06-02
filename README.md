@@ -5,7 +5,7 @@ The objective of this webpage is to quiz the user on basic coding knowledge.  Wh
 
 Once the user clicks on "Start", they will be presented with the first question.  At that moment, the page will present a 15 second timer in which the user will have to race against the clock to answer as many questions as possible.
 
-![In this image, the timer is displayed as the first question is presented to the user.  The timer will continue on to display as each question progresses.](images\timer-img.PNG)
+![In this image, the timer is displayed as the first question is presented to the user.  The timer will continue on to display as each question progresses.](https://raw.githubusercontent.com/pazjenni04/ready-set-quiz/main/images/timer-img.PNG)
 
 As the user continues to test their knowledge throughout each question presented, the timer will continue to tick down until it reaches 0.  Once the timer runs out, the page will be redirected where the user can enter their name into the blank input field and their score will be displayed underneath. 
 

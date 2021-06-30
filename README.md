@@ -33,3 +33,4 @@ At any moment within the quiz, the user has the option to restart the quiz.  If 
 
 Webpage link: https://pazjenni04.github.io/ready-set-quiz/
 
+Contacat info: pazjenni1331@gmail.com

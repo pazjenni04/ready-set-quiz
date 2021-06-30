@@ -1,6 +1,8 @@
 # ready-set-quiz
 The objective of this webpage is to quiz the user on basic coding knowledge.  When the user first clicks on the webpage, they will be presented with the intro page in which the user will have the option to "Start" the quiz.
 
+List of technologies: JavaScript, CSS, HTML, localStorage
+
 ![Getting Started](https://raw.githubusercontent.com/pazjenni04/ready-set-quiz/main/images/Intro-page.PNG)
 
 Once the user clicks on "Start", they will be presented with the first question.  At that moment, the page will present a 15 second timer in which the user will have to race against the clock to answer as many questions as possible.
